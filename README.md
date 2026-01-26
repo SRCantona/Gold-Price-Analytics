@@ -1,4 +1,4 @@
-# 🇸🇦 GoldGauge — Saudi Gold Price Pipeline & Dashboard (2000 → 2025 + Jan 2026)
+#  GoldGauge — Saudi Gold Price Pipeline & Dashboard (2000 → 2025)
 
 > A polished data pipeline + Power BI dashboard that fetches live gold futures, converts to SAR/gram for common karats, and visualizes historical trends and insights. Beautiful, repeatable, and ready for automation. ✨
 

@@ -90,8 +90,11 @@ It handles:
 Instead of manually collecting prices, Python turns the project into a repeatable system:
 
 ● Every run = updated dataset
+
 ● No copy/paste
+
 ● No manual edits
+
 ● No broken data structure
 
 🧩 Step-by-step ETL logic

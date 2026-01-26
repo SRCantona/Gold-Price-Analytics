@@ -130,9 +130,13 @@ Why use an online DB?
 
 Because it makes the project:
 ● scalable 📈
+
 ● auditable 🧾
+
 ● queryable ⚡
+
 ● shareable 👥
+
 ● automation-ready 🤖
 
 Two layers of storage (professional setup)
@@ -142,15 +146,20 @@ This keeps the original fetched price history.
 
 Purpose:
 ● debugging
+
 ● trust
+
 ● reprocessing anytime
 
 🧼 Clean layer (analytics-ready)
 
 This contains the processed results:
 ● SAR/gram
+
 ● karats
+
 ● clean date series
+
 ● validated values
 
 ---
@@ -162,8 +171,11 @@ This stage is where “data science discipline” shows up.
 Gold price data needs cleaning because:
 
 ● missing market days happen
+
 ● sudden spikes can occur
+
 ● duplicates can exist
+
 ● time formatting can break joins
 
 Key cleaning rules
@@ -199,13 +211,17 @@ It contains clean tables that Power BI can load instantly.
 
 Recommended sheets:
 ● Daily_Prices 
+
 ● Monthly_Averages
+
 ● Yearly_Averages
 
 This gives flexibility:
 
 ● daily chart analysis
+
 ● monthly smoothing
+
 ● yearly trend storytelling
 
 ---
@@ -217,8 +233,11 @@ Power BI is where the project becomes visual intelligence.
 Once the Excel tables are loaded, we build:
 
 ● relationships
+
 ● measures
+
 ● calculated metrics
+
 ● time intelligence
 
 Power BI transforms the dataset into:
@@ -232,12 +251,18 @@ Power BI transforms the dataset into:
 ---
 
 ● Final Result / Experience: This project delivers a complete Saudi gold price intelligence experience — turning raw global market data into clear, trusted, and interactive insights. 🟡✨
+
 ● Instead of relying on manual updates, the entire process becomes automated and repeatable, meaning the dashboard can always reflect the latest market movement with minimal effort.
+
 ● The project converts complex financial pricing (USD/ounce) into real Saudi retail meaning (SAR/gram), making it easier to understand gold value locally for different karats like 18K and 21K.
+
 ● By generating daily, monthly, and yearly views, it allows both short-term tracking and long-term historical analysis, giving a full story of how gold evolved from 2000 to 2025 (plus Jan 2026).
+
 ● The final Power BI dashboard becomes more than a visualization — it becomes a decision tool that highlights trends, growth, comparisons, and price changes over time in a professional way. 📊
+
 ● This project demonstrates real-world skills across the full data lifecycle: data collection, cleaning, transformation, storage logic, reporting structure, and business intelligence modeling. 🚀
 ● It creates a strong foundation that can easily be expanded into forecasting, real-time refresh, alerts, or even a public gold price API in the future.
+
 
 ● Conclusion: GoldGauge is a full end-to-end analytics solution that bridges global financial markets with Saudi gold pricing, delivering clean data, meaningful insights, and a powerful dashboard — all built with automation, accuracy, and scalability in mind. 
 

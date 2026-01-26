@@ -55,6 +55,7 @@ Gold purity is measured in karats, where:
 That’s why the price changes based on purity:
 "Lower karat = less pure gold = cheaper per gram"
 
+---
 
 🧠 Stage 1 — Online Gold Market Data (the source)
 Gold in financial markets is usually priced in:
@@ -70,7 +71,7 @@ This project starts by pulling the historical daily Close price.
 Why “Close”?
 Because it’s stable and consistent for time-series reporting.
 
-------------------
+---
 
 🐍 Stage 2 — Python ETL (the engine)
 
@@ -114,6 +115,42 @@ So we apply 2 conversions:
 1 ounce = 31.1034768 grams
 1 USD = 3.75 SAR (peg)
 
+---
+
+🗄️ Stage 3 — Online Database (where data becomes “real”)
+
+A serious analytics project doesn’t rely only on files.
+
+So the next step is storing the pipeline output in an online database.
+
+Why use an online DB?
+
+Because it makes the project:
+● scalable 📈
+● auditable 🧾
+● queryable ⚡
+● shareable 👥
+● automation-ready 🤖
+
+Two layers of storage (professional setup)
+🧱 Raw layer (unchanged source)
+
+This keeps the original fetched price history.
+
+Purpose:
+● debugging
+● trust
+● reprocessing anytime
+
+🧼 Clean layer (analytics-ready)
+
+This contains the processed results:
+● SAR/gram
+● karats
+● clean date series
+● validated values
+
+---
 
 🧹 Stage 4 — Data Cleaning & Preparation (making it dashboard-ready)
 
@@ -145,6 +182,8 @@ A clean dataset means:
 3- trusted KPIs
 4- accurate growth insights
 
+---
+
 📗 Stage 5 — Excel as the Data Warehouse Output
 
 Even though databases are powerful, Excel is still the most common business format.
@@ -166,6 +205,7 @@ This gives flexibility:
 ● monthly smoothing
 ● yearly trend storytelling
 
+---
 
 📊 Stage 6 — Power BI Modeling (where insights are born)
 
@@ -185,6 +225,8 @@ Power BI transforms the dataset into:
 ✅ year-to-year growth
 ✅ price comparisons
 ✅ taxed vs non-taxed scenarios
+
+---
 
 ● Final Result / Experience: This project delivers a complete Saudi gold price intelligence experience — turning raw global market data into clear, trusted, and interactive insights. 🟡✨
 ● Instead of relying on manual updates, the entire process becomes automated and repeatable, meaning the dashboard can always reflect the latest market movement with minimal effort.

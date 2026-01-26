@@ -32,15 +32,22 @@ Gold isn’t just jewelry — it’s one of the most important assets in the wor
 It is widely seen as:
 
 🛡️ A safe haven during uncertainty
+
 📉 A hedge against inflation
+
 💱 A global price reference affected by USD strength, interest rates, and geopolitical events
+
 🧠 A market where history matters: long-term trends + sudden spikes tell a real story
+
 
 In Saudi Arabia, gold is also a daily-life commodity — people buy and sell it as:
 
 🎁 gifts 
+
 💰savings 
+
 📈investment 
+
 🏦long-term value storage 
 
 🧪 Gold Purity (Karats) — What do 18K and 21K mean?
@@ -58,8 +65,11 @@ That’s why the price changes based on purity:
 ---
 
 🧠 Stage 1 — Online Gold Market Data (the source)
+
 Gold in financial markets is usually priced in:
+
 📌 USD per troy ounce
+
 📌 Updated daily (sometimes intraday)
 
 A popular global reference is Gold Futures, symbol:
@@ -98,6 +108,7 @@ Instead of manually collecting prices, Python turns the project into a repeatabl
 ● No broken data structure
 
 🧩 Step-by-step ETL logic
+
 1) Fetch data
 
 Python downloads gold futures history from 2000 until today.
@@ -116,6 +127,7 @@ Gold market data is in USD per ounce, but Saudi retail is SAR per gram.
 So we apply 2 conversions:
 
 1 ounce = 31.1034768 grams
+
 1 USD = 3.75 SAR (peg)
 
 ---
@@ -129,6 +141,7 @@ So the next step is storing the pipeline output in an online database.
 Why use an online DB?
 
 Because it makes the project:
+
 ● scalable 📈
 
 ● auditable 🧾
@@ -140,6 +153,7 @@ Because it makes the project:
 ● automation-ready 🤖
 
 Two layers of storage (professional setup)
+
 🧱 Raw layer (unchanged source)
 
 This keeps the original fetched price history.
@@ -181,9 +195,13 @@ Gold price data needs cleaning because:
 Key cleaning rules
 
 ✅ Handle missing dates
+
 ✅ Remove duplicates
+
 ✅ Ensure price > 0
+
 ✅ Detect extreme jumps
+
 ✅ Standardize rounding and types
 
 Why this matters
@@ -193,8 +211,11 @@ Because dashboards are only as good as the dataset behind them.
 A clean dataset means:
 
 1- stable visuals
+
 2- correct measures
+
 3- trusted KPIs
+
 4- accurate growth insights
 
 ---
@@ -210,6 +231,7 @@ The Excel file becomes a “gold warehouse”
 It contains clean tables that Power BI can load instantly.
 
 Recommended sheets:
+
 ● Daily_Prices 
 
 ● Monthly_Averages
@@ -243,9 +265,13 @@ Once the Excel tables are loaded, we build:
 Power BI transforms the dataset into:
 
 ✅ KPIs
+
 ✅ trend charts
+
 ✅ year-to-year growth
+
 ✅ price comparisons
+
 ✅ taxed vs non-taxed scenarios
 
 ---

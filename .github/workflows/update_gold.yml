@@ -2,8 +2,11 @@ name: Update Gold Prices
 
 on:
   schedule:
-    - cron: "0 3 * * *"   # يومياً الساعة 3 فجراً
-  workflow_dispatch:
+    - cron: "0 3 * * *"   # يومياً الساعة 03:00 UTC (غيره لو تبي)
+  workflow_dispatch:      # لتشغيل يدوي من واجهة GitHub
+
+permissions:
+  contents: write
 
 jobs:
   run-script:
@@ -12,6 +15,17 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Debug - list repo files
+        run: |
+          echo "=== repo files ==="
+          ls -la
+          echo "=== data folder ==="
+          ls -la data || true
+          echo "=== scripts folder ==="
+          ls -la scripts || true
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -20,16 +34,18 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Run gold price update
         run: |
-          python Gold-Price-Analytics/scripts/gold_price_update.py
- 
-      - name: Commit & push updated Excel
+          python scripts/gold_price_update.py
+
+      - name: Commit & push updated Excel (if changed)
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add data/gold_prices.xlsx
-          git commit -m "Auto update gold prices"
-          git push
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data || true
+          # محاولة commit، وإذا ما في تغييرات نتخطّى بدون فشل
+          git commit -m "Auto update gold prices" || echo "No changes to commit"
+          git push || echo "Nothing to push"

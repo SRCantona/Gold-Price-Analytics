@@ -24,12 +24,12 @@ jobs:
 
       - name: Run gold price update
         run: |
-          python gold_price_update.py
+          python scripts/gold_price_update.py
 
       - name: Commit & push updated Excel
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add data/Saudi_Gold_Prices_2000_2026.xlsx
+          git add data/gold_prices.xlsx
           git commit -m "Auto update gold prices"
           git push

@@ -1,0 +1,42 @@
+name: Daily Gold Update
+
+on:
+  schedule:
+    - cron: "0 5 * * *"  # 05:00 UTC = 08:00 Asia/Riyadh
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run updater
+        run: |
+          python scripts/update_gold.py
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/Daily_SAR_Gram.csv data/Monthly_Avg.csv data/Yearly_Avg.csv
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "chore: daily gold update"
+          git push

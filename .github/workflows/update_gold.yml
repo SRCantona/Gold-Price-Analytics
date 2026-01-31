@@ -1,0 +1,35 @@
+name: Update Gold Prices
+
+on:
+  schedule:
+    - cron: "0 3 * * *"   # يومياً الساعة 3 فجراً
+  workflow_dispatch:
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run gold price update
+        run: |
+          python gold_price_update.py
+
+      - name: Commit & push updated Excel
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add data/Saudi_Gold_Prices_2000_2026.xlsx
+          git commit -m "Auto update gold prices"
+          git push

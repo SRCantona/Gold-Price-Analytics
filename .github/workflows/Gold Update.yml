@@ -27,7 +27,7 @@ jobs:
 
       - name: Run updater
         run: |
-          python scripts/update_gold.py
+          python scripts/gold_price_update.py
 
       - name: Commit & push if changed
         run: |

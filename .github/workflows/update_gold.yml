@@ -39,7 +39,7 @@ jobs:
 
       - name: Run gold price update
         run: |
-          python scripts/gold_price_update.py
+          python gold_price_update.py
 
       - name: Commit & push updated Excel (if changed)
         run: |

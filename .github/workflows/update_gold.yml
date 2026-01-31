@@ -24,8 +24,8 @@ jobs:
 
       - name: Run gold price update
         run: |
-          python scripts/gold_price_update.py
-
+          python Gold-Price-Analytics/scripts/gold_price_update.py
+ 
       - name: Commit & push updated Excel
         run: |
           git config user.name "github-actions"

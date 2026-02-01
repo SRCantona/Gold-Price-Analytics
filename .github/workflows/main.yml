@@ -1,4 +1,4 @@
-name: Daily Gold Update (Excel)
+name: Daily Gold Update 
 
 on:
   schedule:
@@ -27,13 +27,13 @@ jobs:
 
       - name: Run updater
         run: |
-          python scripts/update_gold_excel.py
+          python scripts/gold_price_update.py
 
       - name: Commit & push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/Saudi_Gold_Prices.xlsx
+          git add data/GOLD .xlsx
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
